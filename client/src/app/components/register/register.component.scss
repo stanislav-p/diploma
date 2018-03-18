@@ -1,0 +1,11 @@
+@import '../../../assets/styles/variables';
+@import '../../../assets/styles/mixins';
+
+.register {
+  height: calc(100% - 150px);
+  display: flex;
+
+  .container {
+    margin: auto;
+  }
+}

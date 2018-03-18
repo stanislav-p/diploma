@@ -1,0 +1,32 @@
+<section class="profile">
+  <div class="container">
+    <div class="row">
+      <div *ngIf="user.firstName && user.lastName && user.email && user.sex">
+        <p>Name: {{ user.firstName }} {{ user.lastName }}</p>
+        <p>Username: {{ user.username }}</p>
+        <p>Email: {{ user.email }}</p>
+        <p>Sex: {{ user.sex }}</p>
+      </div>
+
+      <div *ngIf="!user.firstName || !user.lastName || !user.email || !user.sex" class="col-xs-12 col-sm-offset-3 col-sm-6 col-md-offset-4 col-md-4">
+
+        <form (submit)="onUpdateProfile()">
+          <div class="form-group">
+            <input type="text" class="form-control" [(ngModel)]="firstName" name="firstName" placeholder="First Name">
+          </div>
+          <div class="form-group">
+            <input type="text" class="form-control" [(ngModel)]="lastName" name="lastName" placeholder="Last Name">
+          </div>
+          <div class="form-group">
+            <input type="email" class="form-control" [(ngModel)]="email" name="email" placeholder="Email">
+          </div>
+          <div class="radio">
+            <label><input type="radio" [(ngModel)]="sex" name="sex" value="true">Male</label>
+            <label><input type="radio" [(ngModel)]="sex" name="sex" value="false">Female</label>
+          </div>
+          <input type="submit" class="btn-main" value="Update">
+        </form>
+      </div>
+    </div>
+  </div>
+</section>
