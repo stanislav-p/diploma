@@ -1,11 +1,10 @@
 <section class="profile">
   <div class="container">
     <div class="row">
-      <div *ngIf="user.firstName && user.lastName && user.email && user.sex">
+      <div *ngIf="user.username && user.lastName && user.email && user.sex">
         <p>Name: {{ user.firstName }} {{ user.lastName }}</p>
         <p>Username: {{ user.username }}</p>
         <p>Email: {{ user.email }}</p>
-        <p>Sex: {{ user.sex }}</p>
       </div>
 
       <div *ngIf="!user.firstName || !user.lastName || !user.email || !user.sex" class="col-xs-12 col-sm-offset-3 col-sm-6 col-md-offset-4 col-md-4">

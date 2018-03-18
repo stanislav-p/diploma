@@ -49,11 +49,11 @@ router.post('/authenticate', (req, res, next) =>  {
                     token: 'JWT ' + token,
                     user: {
                         id: user._id,
-                        firstName: user.firstName || null,
-                        lastName: user.lastName || null,
+                        firstName: user.firstName,
+                        lastName: user.lastName,
                         username: user.username,
-                        email: user.email || null,
-                        sex: user.sex || null,
+                        email: user.email,
+                        sex: user.sex,
                         isAdmin: user.isAdmin,
                         date: user.date
                     }
@@ -75,6 +75,7 @@ router.get('/profile', passport.authenticate('jwt', { session:false }), (req, re
 router.put('/profile', passport.authenticate('jwt', {session:false}), (req, res, next) => {
     const id = req.user.id;
     const obj = req.body;
+    retrn
 
     User.findByIdAndUpdate(id, { firstName: obj.firstName, lastName: obj.lastName, email: obj.email, sex: obj.sex }, function(err) {
         if (err) {
