@@ -75,7 +75,7 @@ router.get('/profile', passport.authenticate('jwt', { session:false }), (req, re
 router.put('/profile', passport.authenticate('jwt', {session:false}), (req, res, next) => {
     const id = req.user.id;
     const obj = req.body;
-    retrn
+    return
 
     User.findByIdAndUpdate(id, { firstName: obj.firstName, lastName: obj.lastName, email: obj.email, sex: obj.sex }, function(err) {
         if (err) {
